@@ -1,0 +1,30 @@
+# Ignore environment configuration
+
+.env
+
+# XAMPP / OS files
+
+.DS_Store
+Thumbs.db
+
+# Node modules (if used)
+
+node_modules/
+
+# Composer vendor (optional)
+
+vendor/
+
+# Logs
+
+*.log
+
+# Temporary files
+
+*.tmp
+*.cache
+
+# IDE files
+
+.vscode/
+.idea/

@@ -47,7 +47,7 @@ width:100%;
 
 <h3 class="login-title">Admin Login</h3>
 
-<form method="post" action="/admin/loginAuth">
+<form method="post" action="<?= base_url('admin/loginAuth') ?>">
 
 <div class="mb-3">
 <label class="form-label">Email</label>

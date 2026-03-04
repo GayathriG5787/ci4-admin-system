@@ -50,7 +50,7 @@ font-weight:600;
 <a class="navbar-brand" href="#">Admin Panel</a>
 
 <div class="ms-auto">
-<a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+<a href="<?= base_url('logout') ?>" class="btn btn-danger btn-sm">Logout</a>
 </div>
 
 </div>
@@ -74,7 +74,7 @@ font-weight:600;
 Add, view and manage users in the system.
 </p>
 
-<a href="/users" class="btn btn-primary">
+<a href="<?= base_url('users') ?>" class="btn btn-primary">
 Go to Users
 </a>
 

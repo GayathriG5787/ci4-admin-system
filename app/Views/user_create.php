@@ -41,10 +41,10 @@ font-weight:500;
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
 
-<a class="navbar-brand" href="/dashboard">Admin Panel</a>
+<a class="navbar-brand" href=<?= base_url('dashboard') ?>>Admin Panel</a>
 
 <div class="ms-auto">
-<a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+<a href="<?= base_url('logout') ?>" class="btn btn-danger btn-sm">Logout</a>
 </div>
 
 </div>
@@ -61,7 +61,7 @@ font-weight:500;
 
 <div class="card p-4">
 
-<form method="post" action="/users/store">
+<form method="post" action=<?= base_url('users/store') ?>>
 
 <div class="mb-3">
 <label class="form-label">Name</label>
@@ -84,7 +84,7 @@ font-weight:500;
 Save User
 </button>
 
-<a href="/users" class="btn btn-secondary">
+<a href="<?= base_url('users') ?>" class="btn btn-secondary">
 Cancel
 </a>
 

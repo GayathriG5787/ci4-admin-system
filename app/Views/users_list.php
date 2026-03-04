@@ -43,10 +43,10 @@ color:white;
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
 
-<a class="navbar-brand" href="/dashboard">Admin Panel</a>
+<a class="navbar-brand" href="<?= base_url('dashboard') ?>">Admin Panel</a>
 
 <div class="ms-auto">
-<a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+<a href="<?= base_url('logout') ?>" class="btn btn-danger btn-sm">Logout</a>
 </div>
 
 </div>
@@ -60,7 +60,7 @@ color:white;
 
 <h3>Users</h3>
 
-<a href="/users/create" class="btn btn-primary">
+<a href= <?= base_url('users/create') ?> class="btn btn-primary">
 Add User
 </a>
 

@@ -202,3 +202,5 @@ class Database extends Config
         }
     }
 }
+
+// Checking of commit in git

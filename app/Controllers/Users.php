@@ -3,17 +3,19 @@
 namespace App\Controllers;
 use CodeIgniter\Controller;
 
+use App\Models\UserModel;
+
 class Users extends Controller
 {
 
-    public function index()
-    {
-        $db = \Config\Database::connect();
+public function index()
+{
+    $model = new UserModel();
 
-        $data['users'] = $db->table('users')->get()->getResult();
+    $data['users'] = $model->findAll();
 
-        return view('users_list',$data);
-    }
+    return view('users_list', $data);
+}
 
     public function create()
     {
@@ -22,7 +24,7 @@ class Users extends Controller
 
     public function store()
     {
-        $db = \Config\Database::connect();
+        $model = new UserModel();
 
         $data = [
             'name' => $this->request->getPost('name'),
@@ -30,9 +32,8 @@ class Users extends Controller
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT)
         ];
 
-        $db->table('users')->insert($data);
+        $model->insert($data);
 
         return redirect()->to('/users');
     }
-
 }

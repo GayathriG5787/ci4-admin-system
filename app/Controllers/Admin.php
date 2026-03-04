@@ -3,6 +3,8 @@
 namespace App\Controllers;
 use CodeIgniter\Controller;
 
+use App\Models\AdminModel;
+
 class Admin extends Controller
 {
     public function login()
@@ -12,20 +14,16 @@ class Admin extends Controller
 
     public function loginAuth()
     {
-        $db = \Config\Database::connect();
+        $model = new \App\Models\AdminModel();
 
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
-        $admin = $db->table('admins')
-            ->where('email', $email)
-            ->get()
-            ->getRow();
+        $admin = $model->where('email', $email)->first();
 
-        if ($admin && password_verify($password, $admin->password))
+        if ($admin && password_verify($password, $admin['password']))
         {
             session()->set('admin_logged_in', true);
-
             return redirect()->to('/dashboard');
         }
         else

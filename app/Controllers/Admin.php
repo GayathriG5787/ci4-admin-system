@@ -18,19 +18,19 @@ class Admin extends Controller
         $password = $this->request->getPost('password');
 
         $admin = $db->table('admins')
-        ->where('email',$email)
-        ->where('password',$password)
-        ->get()
-        ->getRow();
+            ->where('email', $email)
+            ->get()
+            ->getRow();
 
-        if($admin)
+        if ($admin && password_verify($password, $admin->password))
         {
-            session()->set('admin_logged_in',true);
+            session()->set('admin_logged_in', true);
+
             return redirect()->to('/dashboard');
         }
         else
         {
-            return redirect()->back()->with('error','Invalid login');
+            return redirect()->back()->with('error', 'Invalid login');
         }
     }
 

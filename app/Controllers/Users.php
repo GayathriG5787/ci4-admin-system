@@ -22,6 +22,38 @@ public function index()
         return view('user_create');
     }
 
+    public function edit($id)
+    {
+        $model = new \App\Models\UserModel();
+
+        $data['user'] = $model->find($id);
+
+        return view('user_edit', $data);
+    }
+
+    public function update($id)
+    {
+        $model = new \App\Models\UserModel();
+
+        $data = [
+            'name' => $this->request->getPost('name'),
+            'email' => $this->request->getPost('email')
+        ];
+
+        $model->update($id, $data);
+
+        return redirect()->to(base_url('users'));
+    }
+
+    public function delete($id)
+    {
+        $model = new \App\Models\UserModel();
+
+        $model->delete($id);
+
+        return redirect()->to(base_url('users'));
+    }
+
     public function store()
     {
         $model = new UserModel();
